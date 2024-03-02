@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/javascript/javascript.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/css/css.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/htmlmixed/htmlmixed.min.js"></script>
-    
+
     <style>
         body {
             margin: 0;
@@ -44,7 +44,7 @@
 
 
 
-        
+
         .code-editor textarea {
             width: 100%;
             height: calc(100vh - 100px);
@@ -106,15 +106,15 @@
             <iframe id="result-frame"></iframe>
         </div>
     </div>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.9/purify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.9/purify.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Get the example content from URL parameter
             const urlParams = new URLSearchParams(window.location.search);
             const exampleContent = urlParams.get('example');
 
-            // Set pre-written HTML code to the textarea
-            document.getElementById("html-code").value = decodeURIComponent(exampleContent || "");
+            const sanitizedExampleContent = DOMPurify.sanitize(decodeURIComponent(exampleContent || ""));
+
+            document.getElementById("html-code").value = sanitizedExampleContent;
 
             var htmlCodeEditor = CodeMirror.fromTextArea(document.getElementById("html-code"), {
                 mode: "htmlmixed",
@@ -135,6 +135,7 @@
                 htmlCodeEditor.setValue("");
             }
         });
+
     </script>
 
 </body>
