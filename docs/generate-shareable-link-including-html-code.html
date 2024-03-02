@@ -89,6 +89,7 @@
             
             //var generatedURI = generateEditorURL(sanitizedHtmlContent);
             var generatedURI = generateEditorURL(htmlContent);
+            const urlParams = new URLSearchParams(generatedURI);
             const exampleContent = urlParams.get('generatedURI');
             const sanitizedExampleContent = DOMPurify.sanitize(decodeURIComponent(exampleContent || ""));
             var generatedShareURI = generateEditorURL(sanitizedExampleContent);
