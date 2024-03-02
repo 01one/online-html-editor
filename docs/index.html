@@ -124,10 +124,11 @@
 
             window.runCode = function () {
                 var htmlCode = htmlCodeEditor.getValue();
-                var sanitizedHtmlCode = DOMPurify.sanitize(htmlCode);
+                //var sanitizedHtmlCode = DOMPurify.sanitize(htmlCode);
                 var iframe = document.getElementById("result-frame").contentWindow.document;
                 iframe.open();
-                iframe.write(sanitizedHtmlCode);
+                //iframe.write(sanitizedHtmlCode);
+                iframe.write(htmlCode);
                 iframe.close();
             }
 
