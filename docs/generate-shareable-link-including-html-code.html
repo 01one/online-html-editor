@@ -87,10 +87,10 @@
             
             //var sanitizedHtmlContent = DOMPurify.sanitize(htmlContent);
             
-            //var generatedURI = generateEditorURL(sanitizedHtmlContent);
+            var generatedURI = generateEditorURL(htmlContent);
 
             
-            document.getElementById("uriOutput").value = htmlContent ;
+            document.getElementById("uriOutput").value = generatedURI ;
         });
     </script>
 </body>
