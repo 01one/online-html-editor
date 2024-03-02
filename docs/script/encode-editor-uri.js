@@ -1,5 +1,5 @@
 function generateEditorURL(TheExampleHtmlContent) {
     const encodedContent = encodeURIComponent(TheExampleHtmlContent);
-    const editorURL = "https://01one.github.io/online-html-editor/?example=" + encodedContent;
+    const editorURL = "../?example=" + encodedContent;
     return editorURL;
 }
