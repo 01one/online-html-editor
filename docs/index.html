@@ -106,7 +106,7 @@
             <iframe id="result-frame"></iframe>
         </div>
     </div>
-
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.9/purify.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Get the example content from URL parameter
@@ -124,9 +124,10 @@
 
             window.runCode = function () {
                 var htmlCode = htmlCodeEditor.getValue();
+                var sanitizedHtmlCode = DOMPurify.sanitize(htmlCode);
                 var iframe = document.getElementById("result-frame").contentWindow.document;
                 iframe.open();
-                iframe.write(htmlCode);
+                iframe.write(sanitizedHtmlCode);
                 iframe.close();
             }
 
