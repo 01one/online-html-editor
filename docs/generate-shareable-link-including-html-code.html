@@ -84,9 +84,17 @@
 
         document.getElementById("htmlContent").addEventListener("input", function () {
             var htmlContent = document.getElementById("htmlContent").value;
-            var sanitizedHtmlContent = DOMPurify.sanitize(htmlContent);
-            var generatedURI = generateEditorURL(sanitizedHtmlContent);
-            document.getElementById("uriOutput").value = generatedURI;
+            
+            //var sanitizedHtmlContent = DOMPurify.sanitize(htmlContent);
+            
+            //var generatedURI = generateEditorURL(sanitizedHtmlContent);
+            var generatedURI = generateEditorURL(htmlContent);
+            const exampleContent = urlParams.get('generatedURI');
+            const sanitizedExampleContent = DOMPurify.sanitize(decodeURIComponent(exampleContent || ""));
+            var generatedShareURI = generateEditorURL(sanitizedExampleContent);
+
+            
+            document.getElementById("uriOutput").value = generatedShareURI ;
         });
     </script>
 </body>
