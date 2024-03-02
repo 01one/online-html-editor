@@ -83,7 +83,10 @@
         }
 
         document.getElementById("htmlContent").addEventListener("input", function () {
-            var htmlContent = document.getElementById("htmlContent").value;
+            
+            //var htmlContent = document.getElementById("htmlContent").value;
+            const htmlContent = DOMPurify.sanitize(document.getElementById("htmlContent").value;, { USE_PROFILES: { html: true } });
+            
             
             
             var generatedURI = generateEditorURL(htmlContent);
